@@ -3,17 +3,17 @@ $:.push File.expand_path("../lib", __FILE__)
 require "sinatra/auth/github/version"
 
 Gem::Specification.new do |s|
-  s.name        = "sinatra_auth_github"
+  s.name        = "shipcode"
   s.version     = Sinatra::Auth::Github::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Corey Donohoe"]
-  s.email       = ["atmos@atmos.org"]
-  s.homepage    = "http://github.com/atmos/sinatra_auth_github"
-  s.summary     = "A sinatra extension for easy oauth integration with github"
+  s.authors     = ["Christopher Dolinski"]
+  s.email       = ["christopher.dolinski@gmail.com"]
+  s.homepage    = "http://github.com/ebbflowgo/shipcode"
+  s.summary     = "A GitHub commit tracker"
   s.license     = "MIT"
   s.description = s.summary
 
-  s.rubyforge_project = "sinatra_auth_github"
+  # s.rubyforge_project = "shipcode"
 
   s.add_dependency "sinatra",       "~>1.0"
   s.add_dependency "warden-github", "~>1.0"

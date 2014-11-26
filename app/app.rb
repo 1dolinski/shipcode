@@ -1,13 +1,15 @@
 require 'pp'
 
-module Example
+module ShipCode
   class App < Sinatra::Base
+    Tilt.register Tilt::ERBTemplate, 'html.erb'
+
     enable :sessions
 
     set :github_options, {
       :scopes    => "user",
-      :secret    => ENV['SECRET FROM GITHUB'],
-      :client_id => ENV['CLIENT ID FROM GITHUB'],
+      :secret    => ENV['76acb9b121a0b3d163e7d879c3d7dc21250fb4b8'],
+      :client_id => ENV['18bfdee362fb0538ece6']
     }
 
     register Sinatra::Auth::Github
@@ -20,8 +22,14 @@ module Example
 
     get '/' do
       authenticate!
-      "Hello there, #{github_user.login}!"
+      erb "pages/index".to_sym, :layout => :layout
+      # "Hello there, #{github_user.login}!"
     end
+
+    get '/about' do
+      erb "pages/about".to_sym, :layout => :layout
+    end
+
 
     get '/orgs/:id' do
       github_organization_authenticate!(params['id'])

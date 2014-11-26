@@ -4,10 +4,10 @@ require "bundler/setup"
 
 $LOAD_PATH << File.dirname(__FILE__) + '/lib'
 require File.expand_path(File.join(File.dirname(__FILE__), 'lib', 'sinatra_auth_github'))
-require File.expand_path(File.join(File.dirname(__FILE__), 'spec', 'app'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'app', 'app'))
 
 use Rack::Static, :urls => ["/css", "/img", "/js"], :root => "public"
 
-run Example::App
+run ShipCode::App
 
 # vim:ft=ruby

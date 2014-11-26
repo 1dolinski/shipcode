@@ -1,66 +1,34 @@
-sinatra_auth_github
-===================
+# [Shipcode](#)
 
-A sinatra extension that provides oauth authentication to github.  Find out more about enabling your application at github's [oauth quickstart](http://developer.github.com/v3/oauth/).
+### About
+There are two prevailing trends in the coding world.   
+1.  It is difficult to measure the ability and conviction of a programmer  
+2.  Beginning programmers have difficulty finding help
 
-To test it out on localhost set your callback url to 'http://localhost:9393/auth/github/callback'
+*This is one attempt to help others keep programming*
 
-The gist of this project is to provide a few things easily:
+![Shipcode](http://i.giphy.com/r5ix60TtSlPqg.gif)
 
-* authenticate a user against github's oauth service
-* provide an easy way to make API requests for the authenticated user
-* optionally restrict users to a specific github organization
-* optionally restrict users to a specific github team
 
-Installation
-============
+### Idea
+The only way to get better at something is to do more of it. This app looks to simply track and hold accountable those who want to commit. If you don't ship code to Github you pay. You set the terms.
 
-    % gem install sinatra_auth_github
+### Stack  
+1.  Sinatra   
+2.  Github Api  
+3.  ChedderGetter  
 
-Running the Example
-===================
-    % gem install bundler
-    % bundle install
-    % GITHUB_CLIENT_ID="<from GH>" GITHUB_CLIENT_SECRET="<from GH>" bundle exec rackup -p9393
 
-There's an example app in [spec/app.rb](/spec/app.rb).
 
-Example App Functionality
-=========================
+// Application layout
+  // Load Bootstrap
 
-You can simply authenticate via GitHub by hitting http://localhost:9393
 
-You can check organization membership by hitting http://localhost:9393/orgs/github
 
-You can check team membership by hitting http://localhost:9393/teams/42
 
-All unsuccessful authentication requests get sent to the securocat denied page.
 
-API Access
-============
 
-The extension also provides a simple way to access the GitHub API, by providing an
-authenticated Octokit::Client for the user.
-
-    def repos
-      github_user.api.repositories
-    end
-
-For more information on API access, refer to the [octokit documentation](http://rdoc.info/gems/octokit).
-
-Extension Options
-=================
-
-* `:scopes`       - The OAuth2 scopes you require, [Learn More](http://gist.github.com/419219)
-* `:secret`       - The client secret that GitHub provides
-* `:client_id`    - The client id that GitHub provides
-* `:failure_app`  - A Sinatra::Base class that has a route for `/unauthenticated`, Useful for overriding the securocat default page.
-* `:callback_url` - The path that GitHub posts back to, defaults to `/auth/github/callback`.
-
-Enterprise Authentication
-=========================
-
-Under the hood, the `warden-github` portion is powered by octokit.  If you find yourself wanting to connect to a GitHub Enterprise installation you'll need to export two environmental variables.
-
-* OCTOKIT_WEB_ENDPOINT - The web endpoint for OAuth, defaults to https://github.com
-* OCTOKIT_API_ENDPOINT - The API endpoint for authenticated requests, defaults to https://api.github.com
+// ENV variables, keeping them out of github ==> add to Gitignore
+// Basic model 
+// Check Sessions
+// Database setup => Model setup
